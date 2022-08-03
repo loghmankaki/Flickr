@@ -5,8 +5,17 @@
 
 import UIKit
 
+// MARK: - IBOutlets
+// MARK: - Properties
+// MARK: - Lifecycle Methods
+// MARK: - Private Method
+// MARK: - Actions
+// MARK:-  DataSource&Delegate
+// MARK:-  Extentions
 
 class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout {
+    // MARK: - IBOutlets
+
     @IBOutlet weak var collectionView: UICollectionView!{
         didSet{
             collectionView.register(UINib(nibName: "FlipImageCVCell", bundle: nil), forCellWithReuseIdentifier: "FlipImageCVCell")
@@ -15,12 +24,12 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     // MARK: - Properties
     private var disposal = Disposal()
     private var flickrViewModel = FlickrViewModel()
-
+    
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         bindUI()
-
         flickrViewModel.getPhotos()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +57,9 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         collectionView.reloadData()
     }
     
+    
+    // MARK:-  DataSource&Delegate
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return flickrViewModel.numberOfRows
     }
