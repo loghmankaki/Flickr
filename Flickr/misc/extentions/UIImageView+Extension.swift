@@ -12,7 +12,7 @@ import Kingfisher
 extension UIImageView {
     
     func setImage(urlStr: String) {
-        let placeHolderImage = #imageLiteral(resourceName: "circle-logo")
+        let placeHolderImage = UIImage(named: "")
         guard let url = URL(string: urlStr) else {
             self.image = placeHolderImage
             return
